@@ -1,0 +1,117 @@
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 50px 2rem 2rem 2rem;
+    background: linear-gradient(to bottom, rgba(234, 40, 169, 0.1) 0%, rgba(144, 33, 204, 0.1) 100%);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    position: relative;
+}
+
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.left-side {
+    order: 1;
+    padding-right: 0;
+    margin-bottom: 2rem;
+}
+
+.right-side {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eyebrow-text {
+    font-size: 1rem;
+    color: #F328A5;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.main-heading {
+    font-size: 2rem; /* Reduced from 3rem for smaller screens */
+    color: #333;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.description-text {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.button-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.welcome-button {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border: 2px solid #F328A5;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.welcome-button:not(.primary) {
+    background-color: transparent;
+    color: #F328A5;
+}
+
+.welcome-button.primary {
+    background-color: #F328A5;
+    color: white;
+}
+
+.welcome-button:hover {
+    background-color: #F328A5;
+    color: white;
+}
+
+.right-side svg {
+    width: 100%;
+    height: auto;
+    max-width: 450px; /* Increased from 400px to 450px to make the SVG a little bigger */
+}
+
+.arrow-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (min-width: 768px) {
+    .welcome-content {
+        flex-direction: row;
+    }
+
+    .left-side {
+        order: 0;
+        flex: 1;
+        padding-right: 2rem;
+        margin-bottom: 0;
+    }
+
+    .right-side {
+        order: 1;
+        flex: 1;
+    }
+
+    .main-heading {
+        font-size: 3rem; /* Restore to original size for larger screens */
+    }
+    
+}
