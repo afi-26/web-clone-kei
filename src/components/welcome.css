@@ -4,7 +4,7 @@
     align-items: center;
     min-height: 100vh;
     padding: 50px 2rem 2rem 2rem;
-    background: linear-gradient(to bottom, rgba(234, 40, 169, 0.1) 0%, rgba(144, 33, 204, 0.1) 100%);
+    background: transparent;
     backdrop-filter: blur(1px);
     -webkit-backdrop-filter: blur(1px);
     position: relative;

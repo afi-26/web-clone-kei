@@ -7,10 +7,14 @@ import { ReactComponent as RectangleIcon } from '../logo-img/rectangle.svg';
 const Card = () => {
     const textRef = useRef(null);
     const imageRef = useRef(null);
+    const lockIconRef = useRef(null);
+    const rectangleIconRef = useRef(null);
 
     useEffect(() => {
         const textElement = textRef.current;
         const imageElement = imageRef.current;
+        const lockIconElement = lockIconRef.current;
+        const rectangleIconElement = rectangleIconRef.current;
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -18,7 +22,17 @@ const Card = () => {
                     if (entry.target === textElement) {
                         entry.target.classList.add('slide-up');
                     } else if (entry.target === imageElement) {
-                        entry.target.classList.add('fade-in');
+                        setTimeout(() => {
+                            entry.target.classList.add('fade-in');
+                        }, 400);
+                    } else if (entry.target === lockIconElement) {
+                        setTimeout(() => {
+                            entry.target.classList.add('fade-in');
+                        }, 600);
+                    } else if (entry.target === rectangleIconElement) {
+                        setTimeout(() => {
+                            entry.target.classList.add('fade-in');
+                        }, 800);
                     }
                 }
             });
@@ -26,10 +40,14 @@ const Card = () => {
 
         if (textElement) observer.observe(textElement);
         if (imageElement) observer.observe(imageElement);
+        if (lockIconElement) observer.observe(lockIconElement);
+        if (rectangleIconElement) observer.observe(rectangleIconElement);
 
         return () => {
             if (textElement) observer.unobserve(textElement);
             if (imageElement) observer.unobserve(imageElement);
+            if (lockIconElement) observer.unobserve(lockIconElement);
+            if (rectangleIconElement) observer.unobserve(rectangleIconElement);
         };
     }, []);
 
@@ -44,13 +62,13 @@ const Card = () => {
                     </h1>
                     <ul className="card-list">
                         <li>
-                            <div className="circle-icon">
+                            <div ref={lockIconRef} className="circle-icon">
                                 <LockIcon />
                             </div>
                             <span>Customized KEI finance payment cards unlock the value trapped in your portfolio</span>
                         </li>
                         <li>
-                            <div className="circle-icon">
+                            <div ref={rectangleIconRef} className="circle-icon">
                                 <RectangleIcon />
                             </div>
                             <span>Purchase real world goods and services direct from your KEI finance assets</span>
